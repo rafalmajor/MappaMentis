@@ -1,0 +1,120 @@
+MappaMentis/
+├─ src/
+│  ├─ MappaMentis.Domain/                 # czysta domena (mind map)
+│  │  ├─ Entities/
+│  │  │  ├─ MindMap.cs
+│  │  │  ├─ MindNode.cs
+│  │  │  ├─ MindLink.cs
+│  │  │  └─ MarkdownNote.cs
+│  │  ├─ ValueObjects/
+│  │  │  ├─ MapId.cs
+│  │  │  ├─ NodeId.cs
+│  │  │  └─ Title.cs
+│  │  ├─ Aggregates/
+│  │  │  └─ PomodoroTimer.cs              # logika pomodoro (bez UI)
+│  │  ├─ Interfaces/
+│  │  │  └─ IMindMapRepository.cs
+│  │  ├─ Services/
+│  │  │  └─ MindMapService.cs             # operacje czysto domenowe
+│  │  └─ Events/
+│  │     ├─ NodeAdded.cs
+│  │     ├─ IdeaCaptured.cs
+│  │     └─ TimerStarted.cs
+│  │
+│  ├─ MappaMentis.Application/            # use cases (CQRS opcjonalnie)
+│  │  ├─ Abstractions/
+│  │  │  ├─ ICommand.cs
+│  │  │  └─ IQuery.cs
+│  │  ├─ MindMaps/                        # przypadki użycia
+│  │  │  ├─ Commands/
+│  │  │  │  ├─ CreateMindMap.cs
+│  │  │  │  ├─ AddNode.cs
+│  │  │  │  └─ AddMarkdownNote.cs
+│  │  │  └─ Queries/
+│  │  │     ├─ GetMindMap.cs
+│  │  │     └─ SearchIdeas.cs
+│  │  ├─ Pomodoro/
+│  │  │  ├─ Commands/
+│  │  │  │  ├─ StartTimer.cs
+│  │  │  │  └─ StopTimer.cs
+│  │  │  └─ Queries/
+│  │  │     └─ GetTimerState.cs
+│  │  ├─ Common/
+│  │  │  ├─ Result.cs
+│  │  │  └─ Validation/
+│  │  └─ Mapping/                         # mapowania DTO <-> domena
+│  │
+│  ├─ MappaMentis.Infrastructure/         # bazy danych, implementacje repozytoriów
+│  │  ├─ Persistence/
+│  │  │  ├─ MappaMentisDbContext.cs       # EF Core
+│  │  │  ├─ Configurations/
+│  │  │  │  ├─ MindMapConfiguration.cs
+│  │  │  │  └─ MindNodeConfiguration.cs
+│  │  │  └─ Migrations/
+│  │  ├─ Repositories/
+│  │  │  └─ MindMapRepository.cs
+│  │  ├─ Files/                           # np. zapis/odczyt .mm.json
+│  │  ├─ Services/                        # serwisy techniczne (cache, email, itd.)
+│  │  └─ DependencyInjection.cs           # rejestracje DI
+│  │
+│  ├─ MappaMentis.API/                    # Minimal API (do kontenera)
+│  │  ├─ Program.cs
+│  │  ├─ Endpoints/
+│  │  │  ├─ MindMapsEndpoints.cs
+│  │  │  └─ PomodoroEndpoints.cs
+│  │  ├─ DTOs/
+│  │  ├─ Filters/                         # np. globalny error handler
+│  │  ├─ appsettings.json
+│  │  ├─ Dockerfile
+│  │  └─ Properties/
+│  │
+│  ├─ MappaMentis.Blazor/                 # Blazor (Server lub WASM + API)
+│  │  ├─ Server/                          # jeśli wariant WASM: host + API proxy
+│  │  │  ├─ Program.cs
+│  │  │  ├─ Pages/
+│  │  │  ├─ Components/
+│  │  │  ├─ Services/
+│  │  │  ├─ wwwroot/
+│  │  │  └─ Dockerfile
+│  │  └─ Client/                          # Blazor WebAssembly (opcjonalnie)
+│  │     ├─ Program.cs
+│  │     ├─ Pages/
+│  │     ├─ Components/
+│  │     ├─ Services/
+│  │     └─ wwwroot/
+│  │
+│  ├─ MappaMentis.Wpf/                    # aplikacja desktop (MVVM)
+│  │  ├─ App.xaml
+│  │  ├─ Views/
+│  │  ├─ ViewModels/
+│  │  ├─ Services/
+│  │  ├─ Styles/
+│  │  └─ Resources/
+│  │
+│  ├─ MappaMentis.SharedKernel/           # kod współdzielony (np. typy, helpery)
+│  │  └─ GuardClauses.cs
+│  │
+│  └─ MappaMentis.CrossCutting/           # logowanie, konfiguracja, telemetry
+│     ├─ Logging/
+│     ├─ Options/
+│     └─ Monitoring/
+│
+├─ tests/
+│  ├─ MappaMentis.Domain.Tests/
+│  ├─ MappaMentis.Application.Tests/
+│  ├─ MappaMentis.Infrastructure.Tests/   # testy integracyjne EF
+│  └─ MappaMentis.API.Tests/              # testy endpointów (WebApplicationFactory)
+│
+├─ deploy/
+│  ├─ docker-compose.yml                  # dev: API + DB + Blazor
+│  ├─ k8s/                                # manifests (opcjonalnie)
+│  └─ ci-cd/                              # pipelines
+│
+├─ docs/
+│  ├─ architecture.md
+│  └─ api.md
+│
+├─ .editorconfig
+├─ Directory.Build.props                  # wspólne reguły kompilacji
+├─ MappaMentis.sln
+└─ README.md
