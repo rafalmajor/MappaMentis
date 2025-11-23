@@ -1,0 +1,17 @@
+<Window x:Class="MappaMentis.Wpf.SplashScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Width="600"
+        Height="600"
+        ShowInTaskbar="False"
+        Topmost="True">
+    <Grid Background="#F5F1E8">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Image Source="C:\GIT\MappaMentis\Splash screen.png" Margin="0,0,0,20"/>
+        </StackPanel>
+    </Grid>
+</Window>
