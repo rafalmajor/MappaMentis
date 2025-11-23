@@ -6,6 +6,16 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>
+        <ApplicationIcon>..\..\app_icon.ico</ApplicationIcon>
     </PropertyGroup>
+
+    <ItemGroup>
+      <None Include="..\..\app_icon.ico">
+        <Link>app_icon.ico</Link>
+      </None>
+      <None Include="..\..\Logo.png">
+        <Link>Logo.png</Link>
+      </None>
+    </ItemGroup>
 
 </Project>
