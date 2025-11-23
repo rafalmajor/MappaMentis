@@ -1,5 +1,3 @@
-using MappaMentis.Domain.Entities;
-
 namespace MappaMentis.Domain.Tests;
 
 public class MindMapUnitTests
@@ -17,7 +15,7 @@ public class MindMapUnitTests
     #region Constructor Tests
 
     [Fact]
-    public void Constructor_WithValidParameters_ShouldCreateMindMap()
+    public void Constructor_with_valid_parameters_should_create_mind_map()
     {
         // Arrange
         var id = Guid.NewGuid();
@@ -42,7 +40,7 @@ public class MindMapUnitTests
     #region AddNode Tests
 
     [Fact]
-    public void AddNode_WithValidNode_ShouldAddNodeToMindMap()
+    public void Add_node_with_valid_node_should_add_node_to_mind_map()
     {
         // Arrange
         var mindMap = CreateMindMap();
@@ -57,7 +55,7 @@ public class MindMapUnitTests
     }
 
     [Fact]
-    public void AddNode_WithNullNode_ShouldThrowArgumentNullException()
+    public void Add_node_with_null_node_should_throw_argument_null_exception()
     {
         // Arrange
         var mindMap = CreateMindMap();
@@ -67,7 +65,7 @@ public class MindMapUnitTests
     }
 
     [Fact]
-    public void AddNode_WithDuplicateNodeId_ShouldThrowInvalidOperationException()
+    public void Add_node_with_duplicate_node_id_should_throw_invalid_operation_exception()
     {
         // Arrange
         var mindMap = CreateMindMap();
@@ -82,7 +80,7 @@ public class MindMapUnitTests
     }
 
     [Fact]
-    public void AddNode_ShouldUpdateModifiedTime()
+    public void Add_node_should_update_modified_time()
     {
         // Arrange
         var mindMap = CreateMindMap();
@@ -99,7 +97,7 @@ public class MindMapUnitTests
     }
 
     [Fact]
-    public void AddNode_MultipleNodes_ShouldAddAllNodes()
+    public void Add_node_multiple_nodes_should_add_all_nodes()
     {
         // Arrange
         var mindMap = CreateMindMap();
@@ -129,7 +127,7 @@ public class MindMapUnitTests
     #region RemoveNode Tests
 
     [Fact]
-    public void RemoveNode_WithExistingNodeId_ShouldRemoveNode()
+    public void Remove_node_with_existing_node_id_should_remove_node()
     {
         // Arrange
         var mindMap = CreateMindMap();
@@ -144,7 +142,7 @@ public class MindMapUnitTests
     }
 
     [Fact]
-    public void RemoveNode_WithNonExistentNodeId_ShouldNotThrow()
+    public void Remove_node_with_non_existent_node_id_should_not_throw()
     {
         // Arrange
         var mindMap = CreateMindMap();
@@ -155,7 +153,7 @@ public class MindMapUnitTests
     }
 
     [Fact]
-    public void RemoveNode_ShouldRemoveAssociatedLinks()
+    public void Remove_node_should_remove_associated_links()
     {
         // Arrange
         var mindMap = CreateMindMap();
@@ -185,7 +183,7 @@ public class MindMapUnitTests
     }
 
     [Fact]
-    public void RemoveNode_ShouldUpdateModifiedTime()
+    public void Remove_node_should_update_modified_time()
     {
         // Arrange
         var mindMap = CreateMindMap();
@@ -207,7 +205,7 @@ public class MindMapUnitTests
     #region AddLink Tests
 
     [Fact]
-    public void AddLink_WithValidLink_ShouldAddLinkToMindMap()
+    public void Add_link_with_valid_link_should_add_link_to_mind_map()
     {
         // Arrange
         var mindMap = CreateMindMap();
@@ -228,7 +226,7 @@ public class MindMapUnitTests
     }
 
     [Fact]
-    public void AddLink_WithNullLink_ShouldThrowArgumentNullException()
+    public void Add_link_with_null_link_should_throw_argument_null_exception()
     {
         // Arrange
         var mindMap = CreateMindMap();
@@ -238,7 +236,7 @@ public class MindMapUnitTests
     }
 
     [Fact]
-    public void AddLink_WithNonExistentSourceNode_ShouldThrowInvalidOperationException()
+    public void Add_link_with_non_existent_source_node_should_throw_invalid_operation_exception()
     {
         // Arrange
         var mindMap = CreateMindMap();
@@ -252,7 +250,7 @@ public class MindMapUnitTests
     }
 
     [Fact]
-    public void AddLink_WithNonExistentTargetNode_ShouldThrowInvalidOperationException()
+    public void Add_link_with_non_existent_target_node_should_throw_invalid_operation_exception()
     {
         // Arrange
         var mindMap = CreateMindMap();
@@ -266,7 +264,7 @@ public class MindMapUnitTests
     }
 
     [Fact]
-    public void AddLink_WithDuplicateLinkId_ShouldThrowInvalidOperationException()
+    public void Add_link_with_duplicate_link_id_should_throw_invalid_operation_exception()
     {
         // Arrange
         var mindMap = CreateMindMap();
@@ -287,7 +285,7 @@ public class MindMapUnitTests
     }
 
     [Fact]
-    public void AddLink_ShouldUpdateModifiedTime()
+    public void Add_link_should_update_modified_time()
     {
         // Arrange
         var mindMap = CreateMindMap();
@@ -314,7 +312,7 @@ public class MindMapUnitTests
     #region RemoveLink Tests
 
     [Fact]
-    public void RemoveLink_WithExistingLinkId_ShouldRemoveLink()
+    public void Remove_link_with_existing_link_id_should_remove_link()
     {
         // Arrange
         var mindMap = CreateMindMap();
@@ -335,7 +333,7 @@ public class MindMapUnitTests
     }
 
     [Fact]
-    public void RemoveLink_WithNonExistentLinkId_ShouldNotThrow()
+    public void Remove_link_with_non_existent_link_id_should_not_throw()
     {
         // Arrange
         var mindMap = CreateMindMap();
@@ -346,7 +344,7 @@ public class MindMapUnitTests
     }
 
     [Fact]
-    public void RemoveLink_ShouldUpdateModifiedTime()
+    public void Remove_link_should_update_modified_time()
     {
         // Arrange
         var mindMap = CreateMindMap();
@@ -374,7 +372,7 @@ public class MindMapUnitTests
     #region Update Tests
 
     [Fact]
-    public void Update_WithValidParameters_ShouldUpdateTitleAndDescription()
+    public void Update_with_valid_parameters_should_update_title_and_description()
     {
         // Arrange
         var mindMap = CreateMindMap("Old Title", "Old Description");
@@ -390,7 +388,7 @@ public class MindMapUnitTests
     }
 
     [Fact]
-    public void Update_WithNullTitle_ShouldThrowArgumentNullException()
+    public void Update_with_null_title_should_throw_argument_null_exception()
     {
         // Arrange
         var mindMap = CreateMindMap();
@@ -400,7 +398,7 @@ public class MindMapUnitTests
     }
 
     [Fact]
-    public void Update_WithNullDescription_ShouldThrowArgumentNullException()
+    public void Update_with_null_description_should_throw_argument_null_exception()
     {
         // Arrange
         var mindMap = CreateMindMap();
@@ -410,7 +408,7 @@ public class MindMapUnitTests
     }
 
     [Fact]
-    public void Update_ShouldUpdateModifiedTime()
+    public void Update_should_update_modified_time()
     {
         // Arrange
         var mindMap = CreateMindMap();
@@ -430,7 +428,7 @@ public class MindMapUnitTests
     #region Complex Scenarios Tests
 
     [Fact]
-    public void ComplexScenario_CreateMapWithNodesAndLinks_ShouldMaintainConsistency()
+    public void Complex_scenario_create_map_with_nodes_and_links_should_maintain_consistency()
     {
         // Arrange
         var mindMap = CreateMindMap("Project Plan", "A detailed project plan");
@@ -466,7 +464,7 @@ public class MindMapUnitTests
     }
 
     [Fact]
-    public void ComplexScenario_MultipleOperations_ShouldMaintainIntegrity()
+    public void Complex_scenario_multiple_operations_should_maintain_integrity()
     {
         // Arrange
         var mindMap = CreateMindMap();
