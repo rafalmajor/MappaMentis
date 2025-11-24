@@ -9,6 +9,7 @@
         <Color x:Key="BackgroundColor">#F5F1E8</Color>
         <Color x:Key="AccentColor">#1A3A52</Color>
         <Color x:Key="TextColor">#1A3A52</Color>
+        <Color x:Key="AlternativeTextColor">#F5F1E8</Color>
         <Color x:Key="BorderColor">#D3CCC0</Color>
         
         <!-- Brush Resources -->
@@ -17,6 +18,7 @@
         <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource BackgroundColor}"/>
         <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}"/>
         <SolidColorBrush x:Key="TextBrush" Color="{StaticResource TextColor}"/>
+        <SolidColorBrush x:Key="AlternativeTextBrush" Color="{StaticResource AlternativeTextColor}"/>
         <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource BorderColor}"/>
         
         <!-- Default Styles -->
@@ -29,7 +31,7 @@
         
         <Style TargetType="Button">
             <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
-            <Setter Property="Foreground" Value="{StaticResource BackgroundBrush}"/>
+            <Setter Property="Foreground" Value="{StaticResource AlternativeTextBrush}"/>
             <Setter Property="Padding" Value="12,6"/>
             <Setter Property="FontSize" Value="12"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
@@ -54,7 +56,7 @@
         </Style>
         
         <Style TargetType="TextBlock">
-            <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+            <Setter Property="Foreground" Value="{StaticResource AlternativeTextBrush}"/>
             <Setter Property="FontFamily" Value="Segoe UI"/>
         </Style>
         
