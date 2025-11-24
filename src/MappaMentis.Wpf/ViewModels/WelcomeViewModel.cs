@@ -19,6 +19,6 @@ public partial class WelcomeViewModel : ObservableObject
         dashboardView.Show();
 
         // Close the main window
-        System.Windows.Application.Current.MainWindow?.Close();
+        //System.Windows.Application.Current.MainWindow?.Close();
     }
 }

@@ -4,34 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MappaMentis.Wpf"
-        xmlns:vm="clr-namespace:MappaMentis.Wpf.ViewModels"
+        xmlns:views="clr-namespace:MappaMentis.Wpf.Views"
         mc:Ignorable="d"
         Title="MappaMentis" 
         Height="600" 
         Width="1000"
         WindowStartupLocation="CenterScreen">
-    <Window.DataContext>
-        <vm:WelcomeViewModel/>
-    </Window.DataContext>
-    <Grid Background="{StaticResource BackgroundBrush}">
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="{Binding WelcomeTitle}" 
-                       FontSize="28" 
-                       FontWeight="Bold"
-                       Foreground="{StaticResource PrimaryBrush}"
-                       HorizontalAlignment="Center"
-                       Margin="0,0,0,20"/>
-            <TextBlock Text="{Binding WelcomeSubtitle}" 
-                       FontSize="16"
-                       Foreground="{StaticResource PrimaryLightBrush}"
-                       HorizontalAlignment="Center"
-                       Margin="0,0,0,30"/>
-            <Button Content="Get Started" 
-                    HorizontalAlignment="Center"
-                    Padding="24,12"
-                    FontSize="14"
-                    Command="{Binding GetStartedCommand}"
-                    />
-        </StackPanel>
-    </Grid>
+    <views:WelcomeView/>
 </Window>
