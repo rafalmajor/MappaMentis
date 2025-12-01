@@ -13,7 +13,7 @@ public partial class App : Application
 
         // Show splash screen
         SplashScreen splashScreen = new SplashScreen();
-        splashScreen.Show();
+//        splashScreen.Show();
 
         // Create and show main window
         MainWindow mainWindow = new MainWindow();

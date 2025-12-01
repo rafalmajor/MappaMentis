@@ -1,6 +1,6 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using MappaMentis.Wpf.Views;
+using MappaMentis.Wpf.Services;
 
 namespace MappaMentis.Wpf.ViewModels;
 
@@ -9,16 +9,20 @@ namespace MappaMentis.Wpf.ViewModels;
 /// </summary>
 public partial class WelcomeViewModel : ObservableObject
 {
+    private readonly NavigationService _navigationService;
+
     public string WelcomeTitle => "Welcome to MappaMentis";
     public string WelcomeSubtitle => "Your Mind Mapping Application";
+    
+    public WelcomeViewModel(NavigationService navigationService)
+    {
+        _navigationService = navigationService;
+    }
 
     [RelayCommand]
     private void GetStarted()
     {
-        DashboardView dashboardView = new DashboardView();
-        dashboardView.Show();
-
-        // Close the main window
-        //System.Windows.Application.Current.MainWindow?.Close();
+        var dashboardViewModel = new DashboardViewModel(_navigationService);
+        _navigationService.CurrentView = dashboardViewModel;
     }
 }

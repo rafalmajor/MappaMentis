@@ -1,27 +1,24 @@
-<Window x:Class="MappaMentis.Wpf.Views.DashboardView"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MappaMentis.Wpf.Views"
-        mc:Ignorable="d"
-        Title="MappaMentis - Dashboard" 
-        Height="600" 
-        Width="1000"
-        WindowStartupLocation="CenterScreen">
+<UserControl x:Class="MappaMentis.Wpf.Views.DashboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:MappaMentis.Wpf.ViewModels"
+             mc:Ignorable="d"
+             d:DesignHeight="600" d:DesignWidth="1000">
     <Grid Background="{StaticResource BackgroundBrush}">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="Dashboard" 
+            <TextBlock Text="{Binding DashboardTitle}" 
                        FontSize="28" 
                        FontWeight="Bold"
                        Foreground="{StaticResource PrimaryBrush}"
                        HorizontalAlignment="Center"
                        Margin="0,0,0,20"/>
-            <TextBlock Text="Welcome to your mind mapping workspace!" 
+            <TextBlock Text="{Binding DashboardSubtitle}" 
                        FontSize="16"
                        Foreground="{StaticResource PrimaryLightBrush}"
                        HorizontalAlignment="Center"
                        Margin="0,0,0,30"/>
         </StackPanel>
     </Grid>
-</Window>
+</UserControl>

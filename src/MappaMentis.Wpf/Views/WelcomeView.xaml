@@ -6,23 +6,20 @@
              xmlns:vm="clr-namespace:MappaMentis.Wpf.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1000">
-    <UserControl.DataContext>
-        <vm:WelcomeViewModel/>
-    </UserControl.DataContext>
     <Grid Background="{StaticResource BackgroundBrush}">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="{Binding WelcomeTitle}" 
-                       FontSize="28" 
+            <TextBlock Text="{Binding WelcomeTitle}"
+                       FontSize="28"
                        FontWeight="Bold"
                        Foreground="{StaticResource PrimaryBrush}"
                        HorizontalAlignment="Center"
                        Margin="0,0,0,20"/>
-            <TextBlock Text="{Binding WelcomeSubtitle}" 
+            <TextBlock Text="{Binding WelcomeSubtitle}"
                        FontSize="16"
                        Foreground="{StaticResource PrimaryLightBrush}"
                        HorizontalAlignment="Center"
                        Margin="0,0,0,30"/>
-            <Button Content="Get Started" 
+            <Button Content="Get Started"
                     HorizontalAlignment="Center"
                     Padding="24,12"
                     FontSize="14"
