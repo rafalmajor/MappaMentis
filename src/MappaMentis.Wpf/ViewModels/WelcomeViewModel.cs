@@ -22,7 +22,7 @@ public partial class WelcomeViewModel : ObservableObject
     [RelayCommand]
     private void GetStarted()
     {
-        var dashboardViewModel = new DashboardViewModel(_navigationService);
+        var dashboardViewModel = new MindMapViewModel(_navigationService);
         _navigationService.CurrentView = dashboardViewModel;
     }
 }
