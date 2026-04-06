@@ -2,6 +2,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MappaMentis.Domain.Entities;
 using MappaMentis.Wpf.Services;
+using MappaMentis.Wpf.Views;
 
 namespace MappaMentis.Wpf.ViewModels;
 
@@ -11,6 +12,7 @@ namespace MappaMentis.Wpf.ViewModels;
 public partial class MindMapViewModel : ObservableObject
 {
     private readonly NavigationService _navigationService;
+    private MindMapRadialView? _radialView;
 
     [ObservableProperty]
     private string mindMapTitle = "My Mind Map";
@@ -28,7 +30,18 @@ public partial class MindMapViewModel : ObservableObject
         mindMap.AddNode(new MindNode(Guid.NewGuid(), MindMap.Id, "Note 1"));
         mindMap.AddNode(new MindNode(Guid.NewGuid(), MindMap.Id, "Note 2"));
         mindMap.AddNode(new MindNode(Guid.NewGuid(), MindMap.Id, "Note 3"));
-        mindMap.AddNode(new MindNode(Guid.NewGuid(), MindMap.Id, "Note 4"));
+    }
+
+    /// <summary>
+    /// Sets the radial view reference and renders the mind map.
+    /// </summary>
+    public void SetRadialView(MindMapRadialView radialView)
+    {
+        _radialView = radialView;
+        if (_radialView != null)
+        {
+            _radialView.RenderMindMap(MindMap);
+        }
     }
 
     [RelayCommand]

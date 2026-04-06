@@ -4,25 +4,32 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:MappaMentis.Wpf.ViewModels"
+             xmlns:local="clr-namespace:MappaMentis.Wpf.Views"
              mc:Ignorable="d"
-             d:DesignHeight="600" d:DesignWidth="1000">
+             d:DesignHeight="800" d:DesignWidth="1200">
     <Grid Background="{StaticResource BackgroundBrush}">
-        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20">
-            <TextBlock Text="{Binding MindMapTitle}" 
-                       FontSize="28" 
-                       FontWeight="Bold"
-                       Foreground="{StaticResource PrimaryBrush}"
-                       Margin="0,0,0,10"/>
-            <TextBlock Text="{Binding StatusMessage}" 
-                       FontSize="14"
-                       Foreground="{StaticResource PrimaryLightBrush}"
-                       Margin="0,0,0,20"/>
-            <Button Content="Back to Dashboard" 
-                    Padding="16,8"
-                    FontSize="12"
-                    Command="{Binding BackToDashboardCommand}"
-                    />
-        </StackPanel>
-        <Canvas Background="White" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,120,0,0"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header with title and back button -->
+        <!-- <StackPanel Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20"> -->
+        <!--     <TextBlock Text="{Binding MindMapTitle}"  -->
+        <!--                FontSize="28"  -->
+        <!--                FontWeight="Bold" -->
+        <!--                Foreground="{StaticResource PrimaryBrush}" -->
+        <!--                Margin="0,0,0,10"/> -->
+        <!--     <Button Content="Back to Dashboard"  -->
+        <!--             Padding="16,8" -->
+        <!--             FontSize="12" -->
+        <!--             Command="{Binding BackToDashboardCommand}" -->
+        <!--             /> -->
+        <!-- </StackPanel> -->
+
+        <!-- Mind map radial visualization -->
+        <local:MindMapRadialView x:Name="RadialView"
+                                Grid.Row="1"
+                                Background="White"/>
     </Grid>
 </UserControl>
