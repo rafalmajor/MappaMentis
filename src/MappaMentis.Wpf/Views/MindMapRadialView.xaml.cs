@@ -16,7 +16,7 @@ namespace MappaMentis.Wpf.Views;
 public partial class MindMapRadialView : UserControl
 {
     private const double NodeRadius = 60;
-    private const double CircleRadius = 300;
+    private const double CircleRadius = 200;
     private const double LineStrokeWidth = 2;
 
     public MindMapRadialView()
