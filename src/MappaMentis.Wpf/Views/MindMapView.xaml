@@ -14,22 +14,22 @@
         </Grid.RowDefinitions>
 
         <!-- Header with title and back button -->
-        <!-- <StackPanel Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20"> -->
-        <!--     <TextBlock Text="{Binding MindMapTitle}"  -->
-        <!--                FontSize="28"  -->
-        <!--                FontWeight="Bold" -->
-        <!--                Foreground="{StaticResource PrimaryBrush}" -->
-        <!--                Margin="0,0,0,10"/> -->
-        <!--     <Button Content="Back to Dashboard"  -->
-        <!--             Padding="16,8" -->
-        <!--             FontSize="12" -->
-        <!--             Command="{Binding BackToDashboardCommand}" -->
-        <!--             /> -->
-        <!-- </StackPanel> -->
+        <StackPanel Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20">
+            <TextBlock Text="{Binding MindMapTitle}"
+                       FontSize="28"
+                       FontWeight="Bold"
+                       Foreground="{StaticResource PrimaryBrush}"
+                       Margin="0,0,0,10"/>
+            <Button Content="Back to Dashboard"
+                    Padding="16,8"
+                    FontSize="12"
+                    Command="{Binding BackToDashboardCommand}"
+                    />
+        </StackPanel>
 
         <!-- Mind map radial visualization -->
         <local:MindMapRadialView x:Name="RadialView"
                                 Grid.Row="1"
-                                Background="White"/>
+                                Background="Transparent"/>
     </Grid>
 </UserControl>
