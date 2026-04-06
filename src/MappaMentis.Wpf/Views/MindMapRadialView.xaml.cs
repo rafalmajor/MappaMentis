@@ -77,6 +77,13 @@ public partial class MindMapRadialView : UserControl
 
         MindMapCanvas.Children.Add(circle);
 
+        // Create a Grid container to center the text
+        Grid textContainer = new Grid
+        {
+            Width = NodeRadius * 2 - 10,
+            Height = NodeRadius * 2 - 10
+        };
+
         // Create text block for the title
         TextBlock titleText = new TextBlock
         {
@@ -86,19 +93,16 @@ public partial class MindMapRadialView : UserControl
             Foreground = new SolidColorBrush(Colors.White),
             TextAlignment = TextAlignment.Center,
             TextWrapping = TextWrapping.Wrap,
-            Width = NodeRadius * 2 - 10,
-            Height = NodeRadius * 2 - 10
+            VerticalAlignment = VerticalAlignment.Center,
+            HorizontalAlignment = HorizontalAlignment.Center
         };
 
-        Canvas.SetLeft(titleText, centerX - NodeRadius + 5);
-        Canvas.SetTop(titleText, centerY - NodeRadius + 5);
-        Canvas.SetZIndex(titleText, 6);
+        textContainer.Children.Add(titleText);
+        Canvas.SetLeft(textContainer, centerX - (NodeRadius - 5));
+        Canvas.SetTop(textContainer, centerY - (NodeRadius - 5));
+        Canvas.SetZIndex(textContainer, 6);
 
-        // Center the text vertically
-        FrameworkElement host = titleText;
-        host.VerticalAlignment = VerticalAlignment.Center;
-
-        MindMapCanvas.Children.Add(titleText);
+        MindMapCanvas.Children.Add(textContainer);
     }
 
     /// <summary>
