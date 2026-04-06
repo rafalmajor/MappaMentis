@@ -1,5 +1,6 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using MappaMentis.Domain.Entities;
 using MappaMentis.Wpf.Services;
 
 namespace MappaMentis.Wpf.ViewModels;
@@ -16,10 +17,18 @@ public partial class MindMapViewModel : ObservableObject
 
     [ObservableProperty]
     private string statusMessage = "Create and manage your mind maps here";
+    
+    [ObservableProperty]
+    private MindMap mindMap;
 
     public MindMapViewModel(NavigationService navigationService)
     {
         _navigationService = navigationService;
+        mindMap = new MindMap(Guid.NewGuid(), "First Map", "Description");
+        mindMap.AddNode(new MindNode(Guid.NewGuid(), MindMap.Id, "Note 1"));
+        mindMap.AddNode(new MindNode(Guid.NewGuid(), MindMap.Id, "Note 2"));
+        mindMap.AddNode(new MindNode(Guid.NewGuid(), MindMap.Id, "Note 3"));
+        mindMap.AddNode(new MindNode(Guid.NewGuid(), MindMap.Id, "Note 4"));
     }
 
     [RelayCommand]

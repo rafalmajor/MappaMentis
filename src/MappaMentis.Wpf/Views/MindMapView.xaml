@@ -7,6 +7,22 @@
              mc:Ignorable="d"
              d:DesignHeight="600" d:DesignWidth="1000">
     <Grid Background="{StaticResource BackgroundBrush}">
-        <Canvas Background="White" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,0,0,0"/>
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20">
+            <TextBlock Text="{Binding MindMapTitle}" 
+                       FontSize="28" 
+                       FontWeight="Bold"
+                       Foreground="{StaticResource PrimaryBrush}"
+                       Margin="0,0,0,10"/>
+            <TextBlock Text="{Binding StatusMessage}" 
+                       FontSize="14"
+                       Foreground="{StaticResource PrimaryLightBrush}"
+                       Margin="0,0,0,20"/>
+            <Button Content="Back to Dashboard" 
+                    Padding="16,8"
+                    FontSize="12"
+                    Command="{Binding BackToDashboardCommand}"
+                    />
+        </StackPanel>
+        <Canvas Background="White" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,120,0,0"/>
     </Grid>
 </UserControl>
